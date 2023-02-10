@@ -1,0 +1,43 @@
+<main class="main" id="top">
+  <div class="container">
+    <div class="content">
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+      <footer class="footer">
+        <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
+          <div class="col-12 col-sm-auto text-center">
+            <p class="mb-0 text-600">
+              Sweetening Lives
+              <span class="d-none d-sm-inline-block">|</span>
+              <br class="d-sm-none" />
+              2023 &copy;
+              <a href="https://themewagon.com">Cigol Software</a>
+            </p>
+          </div>
+          <div class="col-12 col-sm-auto text-center">
+            <p class="mb-0 text-600">v0.0.1</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</main>
+<button #loadingRef data-bs-target="#loading" data-bs-toggle="modal" hidden></button>
+<div class="modal fade" data-bs-backdrop="static" id="loading" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered position-relative">
+    <div hidden>
+      <button #closeRef data-bs-dismiss="modal"></button>
+    </div>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div class="spinner-border text-light m-3"></div>
+    </div>
+  </div>
+</div>
+<button #toastRef hidden id="liveToastBtn"></button>
+<div class="position-fixed bottom-0 end-0 p-3" tabindex="-1">
+  <div id="liveToast" class="toast hide notice shadow-none bg-transparent">
+    <div class="toast-body my-3 ms-0 ms-md-5">
+      <div class="alert alert-{{toast?.color}} m-0">{{toast?.message}}</div>
+    </div>
+  </div>
+</div>
