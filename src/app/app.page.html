@@ -1,7 +1,24 @@
 <main class="main" id="top">
   <div class="container">
+    <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+      <div class="d-flex align-items-center">
+        <div class="toggle-icon-wrapper">
+          <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle">
+            <span class="navbar-toggle-icon">
+              <span class="toggle-line"></span>
+            </span>
+          </button>
+        </div>
+        <a class="navbar-brand">
+          <div class="d-flex align-items-center py-3">
+            <span class="font-sans-serif">Sweetening</span>
+          </div>
+        </a>
+      </div>
+      <swe-menu></swe-menu>
+    </nav>
     <div class="content">
-      <app-header></app-header>
+      <swe-header [title]="title"></swe-header>
       <router-outlet></router-outlet>
       <footer class="footer">
         <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
@@ -15,29 +32,29 @@
             </p>
           </div>
           <div class="col-12 col-sm-auto text-center">
-            <p class="mb-0 text-600">v0.1</p>
+            <p class="mb-0 text-600">v0.1.1</p>
           </div>
         </div>
       </footer>
+      <div class="bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast hide notice shadow-none bg-transparent" tabindex="-2">
+          <div class="toast-body my-3 ms-0 ms-md-5">
+            <div class="alert alert-{{toast?.color}} m-0">{{toast?.message}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" data-bs-backdrop="static" id="loading" tabindex="-3">
+        <div class="modal-dialog modal-dialog-centered position-relative">
+          <div hidden>
+            <button #closeRef data-bs-dismiss="modal"></button>
+          </div>
+          <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="spinner-border text-light m-3"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
-<button #loadingRef data-bs-target="#loading" data-bs-toggle="modal" hidden></button>
-<div class="modal fade" data-bs-backdrop="static" id="loading" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered position-relative">
-    <div hidden>
-      <button #closeRef data-bs-dismiss="modal"></button>
-    </div>
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <div class="spinner-border text-light m-3"></div>
-    </div>
-  </div>
-</div>
-<button #toastRef hidden id="liveToastBtn"></button>
-<div class="position-fixed bottom-0 end-0 p-3" tabindex="-1">
-  <div id="liveToast" class="toast hide notice shadow-none bg-transparent">
-    <div class="toast-body my-3 ms-0 ms-md-5">
-      <div class="alert alert-{{toast?.color}} m-0">{{toast?.message}}</div>
-    </div>
-  </div>
-</div>
+<button data-bs-target="#loading" data-bs-toggle="modal" #loadingRef hidden></button>
+<button hidden id="liveToastBtn" #toastRef></button>

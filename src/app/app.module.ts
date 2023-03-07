@@ -7,11 +7,17 @@ import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MeasurementModule } from '@cigol/measurement';
+import { MenuComponent } from './components/menu/menu.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   bootstrap: [AppPage],
-  declarations: [AppPage, ButtonComponent, HeaderComponent],
+  declarations: [
+    AppPage,
+    ButtonComponent,
+    HeaderComponent,
+    MenuComponent
+  ],
   imports: [
     AppRouting,
     BrowserModule,

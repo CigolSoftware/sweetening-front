@@ -1,0 +1,23 @@
+<div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+    <div class="navbar-vertical-content scrollbar">
+        <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+            <li class="nav-item">
+                <div class="row navbar-vertical-label-wrapper mb-2">
+                    <div class="col-auto navbar-vertical-label">Medidas </div>
+                    <div class="col ps-0">
+                        <hr class="mb-0 navbar-vertical-divider" />
+                    </div>
+                </div>
+                <a *ngFor="let link of links" [ngClass]="{'active': link.active}" [routerLink]="link.link"
+                    class="nav-link">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-icon">
+                            <span class="fas fa-{{link.icon}}"></span>
+                        </span>
+                        <span class="nav-link-text ps-1">{{link.name}}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
